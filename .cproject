@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject>
+<storageModule moduleId="org.eclipse.cdt.core.settings">
+<cconfiguration id="com.freescale.arm.cdt.toolchain.config.arm.release.1186065036">
+<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.freescale.arm.cdt.toolchain.config.arm.release.1186065036" moduleId="org.eclipse.cdt.core.settings" name="MK60N512VMD100_INTERNAL_RAM">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.managedbuilder.core.ManagedBuildManager" point="org.eclipse.cdt.core.ScannerInfoProvider"/>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.LltErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.AsmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.CobjErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.LnkErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.MwarmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+<configuration artifactExtension="afx" artifactName="graphic_eq" buildProperties="" cleanCommand="&quot;${system:ECLIPSE_HOME}/../gnu/bin/rm&quot; -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.LnkErrorParser;com.freescale.core.ide.cdt.errorParsers.AsmErrorParser;com.freescale.core.ide.cdt.errorParsers.CobjErrorParser;com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser;com.freescale.core.ide.cdt.errorParsers.LltErrorParser;com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser;com.freescale.core.ide.cdt.errorParsers.MwarmErrorParser" id="com.freescale.arm.cdt.toolchain.config.arm.release.1186065036" name="MK60N512VMD100_INTERNAL_RAM" parent="com.freescale.arm.cdt.toolchain.config.arm.release">
+<folderInfo id="com.freescale.arm.cdt.toolchain.config.arm.release.1186065036." name="/" resourcePath="">
+<toolChain id="com.freescale.arm.cdt.toolchain.arm.release.335317761" name="ARM Toolchain" superClass="com.freescale.arm.cdt.toolchain.arm.release">
+<targetPlatform id="com.freescale.arm.cdt.toolchain.targetplatform.217027154" isAbstract="false" name="ARM Target Platform" superClass="com.freescale.arm.cdt.toolchain.targetplatform"/>
+<builder autoBuildTarget="" buildPath="${ProjDirPath}/MK60N512VMD100_INTERNAL_RAM" cleanBuildTarget="" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="com.freescale.arm.cdt.toolchain.builder.440461467" incrementalBuildTarget="" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="GNU Make Builder" parallelizationNumber="1" superClass="com.freescale.arm.cdt.toolchain.builder"/>
+<tool id="com.freescale.arm.cdt.toolchain.linker.329275561" name="ARM Linker" superClass="com.freescale.arm.cdt.toolchain.linker">
+<option id="com.freescale.arm.cdt.toolchain.linker.libraries.libSearch.1776010697" name="Library Search Paths" superClass="com.freescale.arm.cdt.toolchain.linker.libraries.libSearch" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_EABI_Support/ewl/lib&quot;"/>
+</option>
+<option id="com.freescale.arm.cdt.toolchain.linker.commandFile.133420201" name="Linker Command File" superClass="com.freescale.arm.cdt.toolchain.linker.commandFile" value="${ProjDirPath}/Project_Settings/Linker_Files/MK60N512VMD100_ram.lcf" valueType="string"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.compiler.441128189" name="ARM Compiler" superClass="com.freescale.arm.cdt.toolchain.compiler">
+<option id="com.freescale.arm.cdt.toolchain.armCpp.input.userIncludes.762264442" name="Include Search Paths" superClass="com.freescale.arm.cdt.toolchain.armCpp.input.userIncludes" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Headers&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_EABI_Support/ewl/EWL_C/include&quot;"/>
+</option>
+<option id="com.freescale.arm.cdt.toolchain.armCpp.language.cpp.exceptions.1425511314" name="Enable Exceptions" superClass="com.freescale.arm.cdt.toolchain.armCpp.language.cpp.exceptions" value="false" valueType="boolean"/>
+<inputType id="com.freescale.arm.cdt.toolchain.armCpp.cSource.1663044202" name="C Source File" superClass="com.freescale.arm.cdt.toolchain.armCpp.cSource"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.assembler.503878791" name="ARM Assembler" superClass="com.freescale.arm.cdt.toolchain.assembler">
+<inputType id="com.freescale.arm.cdt.toolchain.armAsm.input.1712417839" name="ARM Assembler Input" superClass="com.freescale.arm.cdt.toolchain.armAsm.input"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.preproc.442661037" name="ARM Preprocessor" superClass="com.freescale.arm.cdt.toolchain.preproc"/>
+<tool id="com.freescale.arm.cdt.toolchain.disassembler.918799433" name="ARM Disassembler" superClass="com.freescale.arm.cdt.toolchain.disassembler"/>
+</toolChain>
+</folderInfo>
+<fileInfo id="com.freescale.arm.cdt.toolchain.config.arm.release.1186065036.Project_Settings/Linker_Files/MK60N512VMD100_flash.lcf" name="MK60N512VMD100_flash.lcf" rcbsApplicability="disable" resourcePath="Project_Settings/Linker_Files/MK60N512VMD100_flash.lcf" toolsToInvoke="com.freescale.arm.cdt.toolchain.linker.329275561.671984735">
+<tool id="com.freescale.arm.cdt.toolchain.linker.329275561.671984735" name="ARM Linker" superClass="com.freescale.arm.cdt.toolchain.linker.329275561"/>
+</fileInfo>
+<sourceEntries>
+<entry excluding="Project_Settings/Linker_Files/MK60N512VMD100_flash.lcf" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+</sourceEntries>
+</configuration>
+</storageModule>
+<storageModule moduleId="scannerConfiguration">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile"/>
+<profile id="com.freescale.coldfire.cdt.toolchain.linux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCInstallDir}/m68k-linux-gnu-gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.toolchain.linux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCInstallDir}/m68k-linux-gnu-g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.toolchain.uclinux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCUCInstallDir}/m68k-uclinux-gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.toolchain.uclinux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCUCInstallDir}/m68k-uclinux-g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.symbols.toolchain.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.c.symbols.toolchain.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.hc08.cdt.toolchain.hcs08.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.hc08.cdt.toolchain.rs08.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="makefileGenerator">
+<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cconfiguration>
+<cconfiguration id="com.freescale.arm.cdt.toolchain.config.arm.release.385610690">
+<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.freescale.arm.cdt.toolchain.config.arm.release.385610690" moduleId="org.eclipse.cdt.core.settings" name="MK60N512VMD100_INTERNAL_FLASH">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.managedbuilder.core.ManagedBuildManager" point="org.eclipse.cdt.core.ScannerInfoProvider"/>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.LltErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.AsmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.CobjErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.LnkErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.freescale.core.ide.cdt.errorParsers.MwarmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+<configuration artifactExtension="afx" artifactName="graphic_eq" buildProperties="" cleanCommand="&quot;${system:ECLIPSE_HOME}/../gnu/bin/rm&quot; -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.LnkErrorParser;com.freescale.core.ide.cdt.errorParsers.AsmErrorParser;com.freescale.core.ide.cdt.errorParsers.CobjErrorParser;com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser;com.freescale.core.ide.cdt.errorParsers.LltErrorParser;com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser;com.freescale.core.ide.cdt.errorParsers.MwarmErrorParser" id="com.freescale.arm.cdt.toolchain.config.arm.release.385610690" name="MK60N512VMD100_INTERNAL_FLASH" parent="com.freescale.arm.cdt.toolchain.config.arm.release">
+<folderInfo id="com.freescale.arm.cdt.toolchain.config.arm.release.385610690." name="/" resourcePath="">
+<toolChain id="com.freescale.arm.cdt.toolchain.arm.release.889387281" name="ARM Toolchain" superClass="com.freescale.arm.cdt.toolchain.arm.release">
+<targetPlatform id="com.freescale.arm.cdt.toolchain.targetplatform.1347382352" isAbstract="false" name="ARM Target Platform" superClass="com.freescale.arm.cdt.toolchain.targetplatform"/>
+<builder buildPath="${ProjDirPath}/MK60N512VMD100_INTERNAL_FLASH" id="com.freescale.arm.cdt.toolchain.builder.1808659703" name="GNU Make Builder.MK60N512VMD100_INTERNAL_FLASH" superClass="com.freescale.arm.cdt.toolchain.builder"/>
+<tool id="com.freescale.arm.cdt.toolchain.linker.2025189499" name="ARM Linker" superClass="com.freescale.arm.cdt.toolchain.linker">
+<option id="com.freescale.arm.cdt.toolchain.linker.libraries.libSearch.52832658" superClass="com.freescale.arm.cdt.toolchain.linker.libraries.libSearch" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_EABI_Support/ewl/lib&quot;"/>
+</option>
+<option id="com.freescale.arm.cdt.toolchain.linker.commandFile.1897718246" superClass="com.freescale.arm.cdt.toolchain.linker.commandFile" value="${ProjDirPath}/Project_Settings/Linker_Files/MK60N512VMD100_flash.lcf" valueType="string"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.compiler.192964937" name="ARM Compiler" superClass="com.freescale.arm.cdt.toolchain.compiler">
+<option id="com.freescale.arm.cdt.toolchain.armCpp.input.userIncludes.57802123" superClass="com.freescale.arm.cdt.toolchain.armCpp.input.userIncludes" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Headers&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_EABI_Support/ewl/EWL_C/include&quot;"/>
+</option>
+<option id="com.freescale.arm.cdt.toolchain.armCpp.language.cpp.exceptions.1669452984" superClass="com.freescale.arm.cdt.toolchain.armCpp.language.cpp.exceptions" value="false" valueType="boolean"/>
+<inputType id="com.freescale.arm.cdt.toolchain.armCpp.cSource.2097308964" name="C Source File" superClass="com.freescale.arm.cdt.toolchain.armCpp.cSource"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.assembler.56674825" name="ARM Assembler" superClass="com.freescale.arm.cdt.toolchain.assembler">
+<inputType id="com.freescale.arm.cdt.toolchain.armAsm.input.651121951" name="ARM Assembler Input" superClass="com.freescale.arm.cdt.toolchain.armAsm.input"/>
+</tool>
+<tool id="com.freescale.arm.cdt.toolchain.preproc.1546418541" name="ARM Preprocessor" superClass="com.freescale.arm.cdt.toolchain.preproc"/>
+<tool id="com.freescale.arm.cdt.toolchain.disassembler.215604569" name="ARM Disassembler" superClass="com.freescale.arm.cdt.toolchain.disassembler"/>
+</toolChain>
+</folderInfo>
+<fileInfo id="com.freescale.arm.cdt.toolchain.config.arm.release.385610690.Project_Settings/Linker_Files/MK60N512VMD100_ram.lcf" name="MK60N512VMD100_ram.lcf" rcbsApplicability="disable" resourcePath="Project_Settings/Linker_Files/MK60N512VMD100_ram.lcf" toolsToInvoke="com.freescale.arm.cdt.toolchain.linker.2025189499.214018423">
+<tool id="com.freescale.arm.cdt.toolchain.linker.2025189499.214018423" name="ARM Linker" superClass="com.freescale.arm.cdt.toolchain.linker.2025189499"/>
+</fileInfo>
+<sourceEntries>
+<entry excluding="Project_Settings/Linker_Files/MK60N512VMD100_ram.lcf" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+</sourceEntries>
+</configuration>
+</storageModule>
+<storageModule moduleId="scannerConfiguration">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile"/>
+<profile id="com.freescale.coldfire.cdt.toolchain.linux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCInstallDir}/m68k-linux-gnu-gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.toolchain.linux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCInstallDir}/m68k-linux-gnu-g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.toolchain.uclinux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCUCInstallDir}/m68k-uclinux-gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.toolchain.uclinux.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${CFGCCUCInstallDir}/m68k-uclinux-g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.cpp.symbols.toolchain.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.coldfire.cdt.c.symbols.toolchain.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.hc08.cdt.toolchain.hcs08.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="com.freescale.hc08.cdt.toolchain.rs08.discoveryProfile">
+<buildOutputProvider>
+<openAction enabled="false" filePath=""/>
+<parser enabled="false"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="" command="" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="makefileGenerator">
+<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cconfiguration>
+</storageModule>
+<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+<project id="graphic_eq.com.freescale.arm.cdt.toolchain.project.arm.549998078" name="ARM Project" projectType="com.freescale.arm.cdt.toolchain.project.arm"/>
+</storageModule>
+</cproject>
