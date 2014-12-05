@@ -32,7 +32,6 @@
 // 
 #include <math.h>
 #include "io.h"
-
 //
 // cvt.c - IEEE floating point formatting routines for FreeBSD
 // from GNU libc-4.6.27

@@ -8,9 +8,9 @@
 #ifndef FILTERS_H_
 #define FILTERS_H_
 
-#define SAMPLES_TO_RUN	4096
+#define SAMPLES_TO_RUN	250
 
-#define LP1		// 0-20
+#define BP1		// 10-20
 #define BP2		// 20-40
 #define BP3		// 40-60
 #define BP4		// 60-125
@@ -40,27 +40,37 @@
 // ----------------------------------------------
 // Bandpass 1
 // ----------------------------------------------
-#ifdef LP1
-#define LP1_FILTER_ORDER	2
-#define LP1_CASCADE			1
+#ifdef BP1
+#define BP1_FILTER_ORDER	5
+#define BP1_CASCADE			1
 
-#define LP1_GAIN			530107.5605	
-#define LP1_SCALAR			0.00147
-#define LP1_X0				1.0	
-#define LP1_X1				2.0
-#define LP1_X2				1.0	
-#define LP1_Y0				-0.9971302656	
-#define LP1_Y1				1.9971227200
+#define BP1_GAIN			86.71859801		
+#define BP1_X0				1.0	
+#define BP1_X1				0.0		
+#define BP1_X2				5.0	
+#define BP1_X3				0.0	
+#define BP1_X4				10.0		
+#define BP1_X5				0.0
+#define BP1_Y0				-0.9987744569		
+#define BP1_Y1				9.9889501056
+#define BP1_Y2				-44.9557203770
+#define BP1_Y3				119.8964940600
+#define BP1_Y4				-209.8444608000
+#define BP1_Y5				251.8441804400
+#define BP1_Y6				-209.8959333400
+#define BP1_Y7				119.9553198600
+#define BP1_Y8				-44.9888099260
+#define BP1_Y9				9.9987544312
 #endif
 
 // ----------------------------------------------
 // Memory Allocation
 // ----------------------------------------------
-#ifdef LP1
-static int xvlp1[LP1_FILTER_ORDER+1] = {0};
-static int yvlp1[LP1_FILTER_ORDER+1] = {0};
+#ifdef BP1
+static float xvbp1[BP1_FILTER_ORDER+1] = {0};
+static float yvbp1[BP1_FILTER_ORDER+1] = {0};
 #endif
 
-float lp1Cheby(float x, int * xvlp1, int * yvlp1);
+float bp1Cheby(float x, float * xvbp1, float * yvbp1);
 
 #endif /* FILTERS_H_ */

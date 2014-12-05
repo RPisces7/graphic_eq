@@ -5,7 +5,7 @@
 ################################################################################
 
 export Gnu_Make_Install_DirEnv=$(CWInstallLocationEnv)/gnu/bin
-export ProjDirPath=C:/Users/Reece/Dropbox/RIT/2014-2015/Fall/Interfaces and Digital Electronics/Project/graphic_eq/graphic_eq
+export ProjDirPath=C:/Users/nzb3684/Desktop/TWR-LCD/graphic_eq_Nick
 export CWInstallLocationEnv=C:/Program Files (x86)/Freescale/CW MCU v10.1
 export MCUToolsBaseDirEnv=$(CWInstallLocationEnv)/MCU
 export ARM_ToolsDirEnv=$(CWInstallLocationEnv)/MCU/ARM_Tools/Command_Line_Tools

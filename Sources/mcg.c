@@ -1,9 +1,103 @@
 /*
- * mcg.c
+ * File:    mcg.c
+ * Purpose: Driver for enabling the PLL in 1 of 4 options
  *
+ * Notes:
+ * Assumes the MCG mode is in the default FEI mode out of reset
+ * One of 4 clocking oprions can be selected.
+ * One of 16 crystal values can be used
  */
-#include "derivative.h" /* include peripheral declarations */
+
+#include "derivative.h" 
+#include "common.h"
+#include "mcg.h"
 #include "lptmr.h"
+
+void PLL_Init (unsigned char clk_option, unsigned char crystal_val)
+{
+  if (clk_option > 3) { return; } //return if one of the available options is not selected
+  if (crystal_val > 24) { return; } // return if one of the available crystal options is not available
+//This assumes that the MCG is in default FEI mode out of reset.
+
+// First move to FBE mode
+#if (defined(K60_CLK) || defined(ASB817))
+     MCG_C2 = 0;
+#else
+// Enable external oscillator, RANGE=2, HGO=1, EREFS=1, LP=0, IRCS=0
+    MCG_C2 = MCG_C2_RANGE(2) | MCG_C2_HGO_MASK | MCG_C2_EREFS_MASK;
+#endif
+
+// Select external oscilator and Reference Divider and clear IREFS to start ext osc
+// CLKS=2, FRDIV=3, IREFS=0, IRCLKEN=0, IREFSTEN=0
+  MCG_C1 = MCG_C1_CLKS(2) | MCG_C1_FRDIV(3);
+
+  /* if we aren't using an osc input we don't need to wait for the osc to init */
+#if (!defined(K60_CLK) && !defined(ASB817))
+
+   while (!(MCG_S & MCG_S_OSCINIT_MASK)){};  // wait for oscillator to initialize
+#endif
+
+  while (MCG_S & MCG_S_IREFST_MASK){}; // wait for Reference clock Status bit to clear
+
+  while (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x2){}; // Wait for clock status bits to show clock source is ext ref clk
+
+// Now in FBE
+// Configure PLL Ref Divider, PLLCLKEN=0, PLLSTEN=0, PRDIV=5
+// The crystal frequency is used to select the PRDIV value. Only even frequency crystals are supported
+// that will produce a 2MHz reference clock to the PLL.
+  MCG_C5 = MCG_C5_PRDIV(crystal_val); // Set PLL ref divider to match the crystal used
+
+  // Ensure MCG_C6 is at the reset default of 0. LOLIE disabled, PLL disabled, clk monitor disabled, PLL VCO divider is clear
+  MCG_C6 = 0x0;
+// Select the PLL VCO divider and system clock dividers depending on clocking option
+  switch (clk_option) {
+    case 0:
+      // Set system options dividers
+      //MCG=PLL, core = MCG, bus = MCG, FlexBus = MCG, Flash clock= MCG/2
+      SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(0) | SIM_CLKDIV1_OUTDIV3(0) | SIM_CLKDIV1_OUTDIV4(1);
+      // Set the VCO divider and enable the PLL for 50MHz, LOLIE=0, PLLS=1, CME=0, VDIV=1
+      MCG_C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV(1); //VDIV = 1 (x25)
+      break;
+   case 1: // 100MHz
+      // Set system options dividers
+      //MCG=PLL, core = MCG, bus = MCG/2, FlexBus = MCG/2, Flash clock= MCG/4
+      SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(1) | SIM_CLKDIV1_OUTDIV3(1) | SIM_CLKDIV1_OUTDIV4(3);
+      // Set the VCO divider and enable the PLL for 100MHz, LOLIE=0, PLLS=1, CME=0, VDIV=26
+      MCG_C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV(26); //VDIV = 26 (x50)
+      break;
+    case 2: // 96MHz
+      // Set system options dividers
+      //MCG=PLL, core = MCG, bus = MCG/2, FlexBus = MCG/2, Flash clock= MCG/4
+      SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(1) | SIM_CLKDIV1_OUTDIV3(1) | SIM_CLKDIV1_OUTDIV4(3);
+      // Set the VCO divider and enable the PLL for 96MHz, LOLIE=0, PLLS=1, CME=0, VDIV=24
+      MCG_C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV(24); //VDIV = 24 (x48)
+      break;
+   case 3:
+      // Set system options dividers
+      //MCG=PLL, core = MCG, bus = MCG, FlexBus = MCG, Flash clock= MCG/2
+      SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(0) | SIM_CLKDIV1_OUTDIV3(0) | SIM_CLKDIV1_OUTDIV4(1);
+      // Set the VCO divider and enable the PLL for 48MHz, LOLIE=0, PLLS=1, CME=0, VDIV=0
+      MCG_C6 = MCG_C6_PLLS_MASK; //VDIV = 0 (x24)
+      break;
+  }
+  //b01800
+  //while (!(MCG_S & MCG_S_PLLST_MASK)){}; // wait for PLL status bit to set
+//b01800
+  //while (!(MCG_S & MCG_S_LOCK_MASK)){}; // Wait for LOCK bit to set
+
+// Now running PBE Mode
+
+// Transition into PEE by setting CLKS to 0
+// CLKS=0, FRDIV=3, IREFS=0, IRCLKEN=0, IREFSTEN=0
+  MCG_C1 &= ~MCG_C1_CLKS_MASK;
+
+// Wait for clock status bits to update
+  //b01800
+  //while (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x3){};
+
+// Now running PEE Mode
+
+} //pll_init
 
 /*
  *	This method configures the Multipurpose Clock Generator (MCG) to run in
@@ -77,52 +171,4 @@ void MCG_FLL_RTC_OSC() {
 	MCG_C4 |= MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(3);
 }
 
-void CLOCK_100MHZ(void){
-	// Bus: 48Mhz
-	// Core & System: 96Mhz
-	
-	/* Switch to FBE Mode */
-	/* OSC->CR: ERCLKEN=0,??=0,EREFSTEN=0, */
-	OSC_CR = (uint8_t)0x00u;
-	/* SIM->SOPT2: MCGCLKSEL=0 TRACECLKSEL=1 */
-	SIM_SOPT2 = SIM_SOPT2_TRACECLKSEL_MASK;
-	/* MCG->C2: ??=0,??=0,RANGE=2,HGO=0,EREFS=1,LP=0,IRCS=0 */
-	MCG_C2 = (uint8_t)0x24u;
-	/* MCG->C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-	MCG_C1 = (uint8_t)0x9Au;
-	/* MCG->C4: DMX32=0,DRST_DRS=0 */
-	MCG_C4 &= (uint8_t)~(uint8_t)0xE0u;
-	/* MCG->C5: PLLCLKEN=0,PLLSTEN=0,PRDIV=25(50MHz / 25 = 2MHz)*/
-	MCG_C5 = (uint8_t)0x18u;
-	/* MCG->C5: PLLCLKEN=1 */
-	MCG_C5 |= (uint8_t)0x40u;
-	/* Enable the PLL */
-	/* MCG->C6: LOLIE=0,PLLS=0,CME=0,VDIV=0 */
-	MCG_C6 = (uint8_t)0x00u;
-	while((MCG_S & MCG_S_OSCINIT_MASK) == 0u)
-		{ /* Check that the oscillator is running */  }
-	while((MCG_S & MCG_S_IREFST_MASK) != 0u)
-		{ /* Check that the source of the FLL reference clock is the external reference clock. */  }
-	while((MCG_S & 0x0Cu) != 0x08u)
-		{    /* Wait until external reference clock is selected as MCG output */  }
 
-	/* Switch to PBE Mode */
-	/* MCG->C1: CLKS=2,FRDIV=0,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-	MCG_C1 = (uint8_t)0x82u;
-	/* MCG_C6: LOLIE=0,PLLS=1,CME=0,VDIV=0 */
-	MCG_C6 = (uint8_t)0x40u;
-	
-	/* Switch to PEE Mode */
-	/* MCG_C1: CLKS=0,FRDIV=0,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-	MCG_C1 = (uint8_t)0x02u;
-	/* MCG_C5: ??=0,PLLCLKEN=0,PLLSTEN=0,PRDIV=25 */
-	MCG_C5 = (uint8_t)0x18u;
-	/* MCG_C6: LOLIE=0,PLLS=1,CME=0,VDIV=50 (2MHz * 48 = 96MHz) */
-	MCG_C6 = (uint8_t)0x58u;
-	while((MCG_S & 0x0Cu) != 0x0Cu) {
-		/* Wait until output of the PLL is selected */  }
-	while((MCG_S & MCG_S_LOCK_MASK) == 0u)
-		{ /* Wait until locked */  }
-	/* SIM_CLKDIV1: OUTDIV1=0,OUTDIV2=1,OUTDIV3=3,OUTDIV4=1 */
-	SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(1) | SIM_CLKDIV1_OUTDIV3(3) | SIM_CLKDIV1_OUTDIV4(1));
-}

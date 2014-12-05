@@ -38,40 +38,6 @@ void isr_default(void)
 }
 /* end of isr_default */
 
-void isr_USAGE_FAULT(void)
-{
-	
-}
-
-void isr_HARD_FAULT(void)
-{
-	// Loads the offending PC position (memory address) into
-	// R1
-	__asm volatile (
-		" movs r0,#4       \n"
-		" movs r1, lr      \n"
-		" tst r0, r1       \n"
-		" beq _MSP         \n"
-		" mrs r0, psp      \n"
-		" b _HALT          \n"
-		"_MSP:               \n"
-		" mrs r0, msp      \n"
-		"_HALT:              \n"
-		" ldr r1,[r0,#20]  \n"
-		" bkpt #0          \n"
-	);
-}
-
-void isr_MEM_MANAGE_FAULT(void)
-{
-	
-}
-
-void isr_BUS_FAULT(void)
-{
-	
-}
-
 void isrINT_NMI(void)
 {
   /* Write your interrupt code here ... */
@@ -93,16 +59,18 @@ extern void __thumb_startup( void );
   #define UNASSIGNED_ISR isr_default   /* unassigned interrupt service routine */
 #endif
 
+extern void pit_ch0_isr (void);
+
 #pragma define_section vectortable ".vectortable" ".vectortable" ".vectortable" far_abs R
 static __declspec(vectortable) tVectorTable __vect_table = { /* Interrupt vector table */
    __SP_INIT,                                              /* 0 (0x00000000) (prior: -) */
   {
    (tIsrFunc)__thumb_startup,                              /* 1 (0x00000004) (prior: -) */
    (tIsrFunc)isrINT_NMI,                                   /* 2 (0x00000008) (prior: -2) */
-   (tIsrFunc)isr_HARD_FAULT,                               /* 3 (0x0000000C) (prior: -1) */
-   (tIsrFunc)isr_MEM_MANAGE_FAULT,                               /* 4 (0x00000010) (prior: -) */
-   (tIsrFunc)isr_BUS_FAULT,                               /* 5 (0x00000014) (prior: -) */
-   (tIsrFunc)isr_USAGE_FAULT,                               /* 6 (0x00000018) (prior: -) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 3 (0x0000000C) (prior: -1) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 4 (0x00000010) (prior: -) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 5 (0x00000014) (prior: -) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 6 (0x00000018) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 7 (0x0000001C) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 8 (0x00000020) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 9 (0x00000024) (prior: -) */
@@ -111,7 +79,7 @@ static __declspec(vectortable) tVectorTable __vect_table = { /* Interrupt vector
    (tIsrFunc)UNASSIGNED_ISR,                               /* 12 (0x00000030) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 13 (0x00000034) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 14 (0x00000038) (prior: -) */
-   (tIsrFunc)UNASSIGNED_ISR,                               /* 15 (0x0000003C) (prior: -) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 15 (0x0000003C) (prior: -) SysTick*/
    (tIsrFunc)UNASSIGNED_ISR,                               /* 16 (0x00000040) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 17 (0x00000044) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 18 (0x00000048) (prior: -) */
@@ -169,22 +137,22 @@ static __declspec(vectortable) tVectorTable __vect_table = { /* Interrupt vector
    (tIsrFunc)UNASSIGNED_ISR,                               /* 70 (0x00000118) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 71 (0x0000011C) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 72 (0x00000120) (prior: -) */
-   (tIsrFunc)UNASSIGNED_ISR,                               /* 73 (0x00000124) (prior: -) */
-   (tIsrFunc)ADC1_IRQHandler,                               /* 74 (0x00000128) (prior: -) */
+   (tIsrFunc)UNASSIGNED_ISR,                               /* 73 (0x00000124) (prior: -) ADC0*/
+   (tIsrFunc)ADC1_IRQHandler,                               /* 74 (0x00000128) (prior: -) ADC1*/
    (tIsrFunc)UNASSIGNED_ISR,                               /* 75 (0x0000012C) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 76 (0x00000130) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 77 (0x00000134) (prior: -) */
-   (tIsrFunc)FTM0_ISR,                               	   /* 78 (0x00000138) (prior: -) */
+   (tIsrFunc)FTM0_ISR,                               /* 78 (0x00000138) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 79 (0x0000013C) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 80 (0x00000140) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 81 (0x00000144) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 82 (0x00000148) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 83 (0x0000014C) (prior: -) */
-   (tIsrFunc)UNASSIGNED_ISR,                               /* 84 (0x00000150) (prior: -) */
+   (tIsrFunc)pit_ch0_isr,                               /* 84 (0x00000150) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 85 (0x00000154) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 86 (0x00000158) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 87 (0x0000015C) (prior: -) */
-   (tIsrFunc)PDB_Timer_IRQHandler,                   /* 88 (0x00000160) (prior: -) */
+   (tIsrFunc)PDB_Timer_IRQHandler,                               /* 88 (0x00000160) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 89 (0x00000164) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 90 (0x00000168) (prior: -) */
    (tIsrFunc)UNASSIGNED_ISR,                               /* 91 (0x0000016C) (prior: -) */

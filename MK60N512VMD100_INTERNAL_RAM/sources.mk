@@ -69,6 +69,43 @@ C_DEPS_QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Sources \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_hw_interface/template \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_hw_interface/s12_adc_12b \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_hw_interface/s08_adc_12b \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_hw_interface/mcf52259_adc_12b \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_hw_interface/kinetis_adc_12b \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_drivers/tsc2046 \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_drivers/template \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_drivers/resistive_mqx \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_drivers/resistive \
+Sources/D4D/low_level_drivers/touch_screen/touch_screen_drivers/mcf52277_asp \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/template_fb \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/template \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/spi_swc_8bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/spi_sw_16bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/spi_8bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/spi_16bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/s12_spi_16b \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/mqx_spi \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/mqx_mpc5125_diu \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/mqx_flexbus \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/kinetis_spi_bm \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/gpio_8080_byte_8bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/gpio_8080_8bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/gpio_6800_8bit \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/flexbus_8b \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/flexbus_16b \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/dragonfire_lcdc \
+Sources/D4D/low_level_drivers/LCD/lcd_hw_interface/common_drivers \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/template \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/ssd1926 \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/ssd1289 \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/ls020 \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/lgdp4531 \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/fsa506 \
+Sources/D4D/low_level_drivers/LCD/lcd_controllers_drivers/frame_buffer \
+Sources/D4D/graphic_objects \
+Sources/D4D/common_files \
 Project_Settings/Startup_Code \
 Project_Settings/Linker_Files \
 

@@ -1,4 +1,4 @@
-Sources/fcvt.obj: C:\Users\Reece\Dropbox\RIT\2014-2015\Fall\Interfaces\ and\ Digital\ Electronics\Project\graphic_eq\graphic_eq\Sources\fcvt.c \
+Sources/fcvt.obj: C:\Users\nzb3684\Desktop\TWR-LCD\graphic_eq_Nick\Sources\fcvt.c \
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\common.prefix \
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\ewl_c_version.h \
@@ -18,4 +18,4 @@ Sources/fcvt.obj: C:\Users\Reece\Dropbox\RIT\2014-2015\Fall\Interfaces\ and\ Dig
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\ewl_t.h \
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\arm\math.ARM.h \
 	C:\Program\ Files\ (x86)\Freescale\CW\ MCU\ v10.1\MCU\ARM_EABI_Support\ewl\EWL_C\include\cerrno \
-	C:\Users\Reece\Dropbox\RIT\2014-2015\Fall\Interfaces\ and\ Digital\ Electronics\Project\graphic_eq\graphic_eq\Sources\io.h 
+	C:\Users\nzb3684\Desktop\TWR-LCD\graphic_eq_Nick\Sources\io.h 

@@ -7,6 +7,8 @@
 #ifndef _IO_H
 #define _IO_H
 
+//#define printf io_printf
+
 #define printf ee_printf
 #define HAS_FLOAT
 #define CVTBUFSIZE 80

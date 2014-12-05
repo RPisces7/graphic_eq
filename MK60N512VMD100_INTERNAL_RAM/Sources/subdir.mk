@@ -7,99 +7,129 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS_QUOTED += \
 "../Sources/adc.c" \
+"../Sources/d4d_screen.c" \
 "../Sources/dac.c" \
 "../Sources/ee_printf.c" \
 "../Sources/fcvt.c" \
 "../Sources/filters.c" \
+"../Sources/fonts.c" \
 "../Sources/gpio.c" \
 "../Sources/io.c" \
 "../Sources/isr.c" \
 "../Sources/lptmr.c" \
 "../Sources/main.c" \
 "../Sources/mcg.c" \
+"../Sources/pit.c" \
 "../Sources/printf.c" \
+"../Sources/sim.c" \
 "../Sources/timers.c" \
 "../Sources/uart.c" \
+"../Sources/ui_eqBar.c" \
 
 C_SRCS += \
 ../Sources/adc.c \
+../Sources/d4d_screen.c \
 ../Sources/dac.c \
 ../Sources/ee_printf.c \
 ../Sources/fcvt.c \
 ../Sources/filters.c \
+../Sources/fonts.c \
 ../Sources/gpio.c \
 ../Sources/io.c \
 ../Sources/isr.c \
 ../Sources/lptmr.c \
 ../Sources/main.c \
 ../Sources/mcg.c \
+../Sources/pit.c \
 ../Sources/printf.c \
+../Sources/sim.c \
 ../Sources/timers.c \
 ../Sources/uart.c \
+../Sources/ui_eqBar.c \
 
 OBJS += \
 ./Sources/adc.obj \
+./Sources/d4d_screen.obj \
 ./Sources/dac.obj \
 ./Sources/ee_printf.obj \
 ./Sources/fcvt.obj \
 ./Sources/filters.obj \
+./Sources/fonts.obj \
 ./Sources/gpio.obj \
 ./Sources/io.obj \
 ./Sources/isr.obj \
 ./Sources/lptmr.obj \
 ./Sources/main.obj \
 ./Sources/mcg.obj \
+./Sources/pit.obj \
 ./Sources/printf.obj \
+./Sources/sim.obj \
 ./Sources/timers.obj \
 ./Sources/uart.obj \
+./Sources/ui_eqBar.obj \
 
 C_DEPS += \
 ./Sources/adc.d \
+./Sources/d4d_screen.d \
 ./Sources/dac.d \
 ./Sources/ee_printf.d \
 ./Sources/fcvt.d \
 ./Sources/filters.d \
+./Sources/fonts.d \
 ./Sources/gpio.d \
 ./Sources/io.d \
 ./Sources/isr.d \
 ./Sources/lptmr.d \
 ./Sources/main.d \
 ./Sources/mcg.d \
+./Sources/pit.d \
 ./Sources/printf.d \
+./Sources/sim.d \
 ./Sources/timers.d \
 ./Sources/uart.d \
+./Sources/ui_eqBar.d \
 
 OBJS_QUOTED += \
 "./Sources/adc.obj" \
+"./Sources/d4d_screen.obj" \
 "./Sources/dac.obj" \
 "./Sources/ee_printf.obj" \
 "./Sources/fcvt.obj" \
 "./Sources/filters.obj" \
+"./Sources/fonts.obj" \
 "./Sources/gpio.obj" \
 "./Sources/io.obj" \
 "./Sources/isr.obj" \
 "./Sources/lptmr.obj" \
 "./Sources/main.obj" \
 "./Sources/mcg.obj" \
+"./Sources/pit.obj" \
 "./Sources/printf.obj" \
+"./Sources/sim.obj" \
 "./Sources/timers.obj" \
 "./Sources/uart.obj" \
+"./Sources/ui_eqBar.obj" \
 
 OBJS_OS_FORMAT += \
 ./Sources/adc.obj \
+./Sources/d4d_screen.obj \
 ./Sources/dac.obj \
 ./Sources/ee_printf.obj \
 ./Sources/fcvt.obj \
 ./Sources/filters.obj \
+./Sources/fonts.obj \
 ./Sources/gpio.obj \
 ./Sources/io.obj \
 ./Sources/isr.obj \
 ./Sources/lptmr.obj \
 ./Sources/main.obj \
 ./Sources/mcg.obj \
+./Sources/pit.obj \
 ./Sources/printf.obj \
+./Sources/sim.obj \
 ./Sources/timers.obj \
 ./Sources/uart.obj \
+./Sources/ui_eqBar.obj \
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -113,6 +143,13 @@ Sources/adc.obj: ../Sources/adc.c
 Sources/%.d: ../Sources/%.c
 	@echo 'Regenerating dependency file: $@'
 	
+	@echo ' '
+
+Sources/d4d_screen.obj: ../Sources/d4d_screen.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/d4d_screen.args" -o "Sources/d4d_screen.obj" -c "$<" -MD -gccdep
+	@echo 'Finished building: $<'
 	@echo ' '
 
 Sources/dac.obj: ../Sources/dac.c
@@ -140,6 +177,13 @@ Sources/filters.obj: ../Sources/filters.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
 	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/filters.args" -o "Sources/filters.obj" -c "$<" -MD -gccdep
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/fonts.obj: ../Sources/fonts.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/fonts.args" -o "Sources/fonts.obj" -c "$<" -MD -gccdep
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -185,10 +229,24 @@ Sources/mcg.obj: ../Sources/mcg.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
+Sources/pit.obj: ../Sources/pit.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/pit.args" -o "Sources/pit.obj" -c "$<" -MD -gccdep
+	@echo 'Finished building: $<'
+	@echo ' '
+
 Sources/printf.obj: ../Sources/printf.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
 	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/printf.args" -o "Sources/printf.obj" -c "$<" -MD -gccdep
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/sim.obj: ../Sources/sim.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/sim.args" -o "Sources/sim.obj" -c "$<" -MD -gccdep
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -203,6 +261,13 @@ Sources/uart.obj: ../Sources/uart.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
 	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/uart.args" -o "Sources/uart.obj" -c "$<" -MD -gccdep
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/ui_eqBar.obj: ../Sources/ui_eqBar.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"$(ARM_ToolsDirEnv)/mwccarm" -gccinc @@"Sources/ui_eqBar.args" -o "Sources/ui_eqBar.obj" -c "$<" -MD -gccdep
 	@echo 'Finished building: $<'
 	@echo ' '
 

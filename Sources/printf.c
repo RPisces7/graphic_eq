@@ -1,5 +1,5 @@
 /*
- * File:        printk.c
+ * File:        printf.c
  * Purpose:     The standard C library routine printf(), but without
  *              all the baggage.
  */
@@ -8,10 +8,12 @@
 #include "io.h"
 #include <stdarg.h>
 
-#define TRUE 1
-#define FALSE 0
-#define HAS_FLOAT		// Include support for floating-point format
-
+#ifndef TRUE
+	#define TRUE 1
+#endif
+#ifndef FALSE
+	#define FALSE 0
+#endif
 /********************************************************************/
 
 typedef struct
@@ -596,7 +598,7 @@ io_printf (const char *fmt, ...)
 }
 
 /********************************************************************/
-int
+int 
 sprintf (char *s, const char *fmt, ...)
 {
     va_list ap;

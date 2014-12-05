@@ -6,22 +6,22 @@
  */
 #include "filters.h"
 
-#ifdef LP1
-float lp1Cheby(float x, int * xvlp1, int * yvlp1)
+#ifdef BP1
+float bp1Cheby(float x, float * xvbp1, float * yvbp1)
 {
 
 	int i = 0;
-	for(i = 0; i<LP1_FILTER_ORDER; i++)
+	for(i = 0; i<BP1_FILTER_ORDER; i++)
 	{
-		xvlp1[i] = xvlp1[i+1];
-		yvlp1[i] = yvlp1[i+1];
+		xvbp1[i] = xvbp1[i+1];
+		yvbp1[i] = yvbp1[i+1];
 	}
 	
-	xvlp1[LP1_FILTER_ORDER] = x / LP1_GAIN;
+	xvbp1[BP1_FILTER_ORDER] = x / BP1_GAIN;
 	
-	yvlp1[LP1_FILTER_ORDER] = (LP1_X0 * (float)xvlp1[0]) + (LP1_X1 * (float)xvlp1[1]) + (LP1_X2 * (float)xvlp1[2])
-							  + (LP1_Y0 * (float)yvlp1[0]) + (LP1_Y1 * (float)yvlp1[1]);
+	yvbp1[BP1_FILTER_ORDER] = (BP1_X0 * xvbp1[0]) + (BP1_X1 * xvbp1[1]) + (BP1_X2 * xvbp1[2])
+							  + (BP1_X3 * xvbp1[3]) + (BP1_X4 * xvbp1[4]) + (BP1_X5 * xvbp1[5]);
 	
-	return yvlp1[LP1_FILTER_ORDER];
+	return yvbp1[BP1_FILTER_ORDER];
 }
 #endif
